@@ -13,7 +13,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the bot_telegram.py file into the container
 COPY bot_telegram.py .
 COPY db.py .
-COPY files.db .
 COPY .env .
 
 # Run the commands using subprocess in the container
