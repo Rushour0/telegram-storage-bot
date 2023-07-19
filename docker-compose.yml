@@ -6,3 +6,4 @@ services:
       dockerfile: Dockerfile
     container_name: telegram_storage_bot
     restart: always
+    command: bash -c "pip install watchdog==3.0.0 && python -u -m watchdog /app/bot_telegram.py" # Use watchdog to auto-restart the Python script on changes
