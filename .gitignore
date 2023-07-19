@@ -1,0 +1,7 @@
+*.pyc
+*.db
+*.sqlite3
+
+# Ignore all logfiles and temporary files.
+*.log
+.env
