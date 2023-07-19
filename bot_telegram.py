@@ -94,7 +94,7 @@ def addfile(update, context):
     info = Updates(update)
     file_name = info.caption[9:].lower()
     logging.info(f"Adding file : {file_name}")
-    if info.caption and info.caption.startswith("/addfile ") and (info.sender_id == info.chat_id or retrieve_admins_by_chat_id(info.chat_id)):
+    if info.caption and info.caption.startswith("/addfile ") and ((info.sender_id == info.chat_id) or (retrieve_admins_by_chat_id(info.chat_id))):
         message_id = retrieve_file_id_by_file_name(file_name)
         if message_id:
             update.message.reply_text(
@@ -103,6 +103,7 @@ def addfile(update, context):
         insert_data(file_name, info.file_id)
         update.message.reply_text("File has been saved!")
         logging.info(f"File saved : {file_name}")
+        return
     logging.info(f"File not saved : {file_name}")
     update.message.reply_text("File not saved! You are not an admin")
 
